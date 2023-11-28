@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_document/presentation/pages/mobile/document_mob.dart';
-import 'package:my_document/presentation/pages/mobile/home_screen_mob.dart';
+import 'package:my_document/presentation/pages/mobile/navigations/document_mob.dart';
+import 'package:my_document/presentation/pages/mobile/navigations/home_screen_mob.dart';
 import 'package:my_document/presentation/themes/app_colors.dart';
 
 class MobileView extends StatefulWidget {
