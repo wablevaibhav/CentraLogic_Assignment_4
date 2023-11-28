@@ -1,0 +1,191 @@
+{
+          "value": [
+            {
+               "joining": [
+                    {
+                        "title": "License Document.pdf",
+                        "size": "15MB",
+                        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    },
+					
+					{
+                        "title": "Contract Document.pdf",
+                        "size": "15MB",
+                        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    },
+					
+					{
+                        "title": "ICA Document.pdf",
+                        "size": "15MB",
+                        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+               ],
+               "transaction": [
+                    {
+                        "address": "2715 Ash Dr. San Jose, South Dakota 83475",
+                        "transactionId": 235678,
+                        "documents": [
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Unapproved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            }
+                        ]
+                    },
+                    {
+                        "address": "2715 Ash Dr. San Jose, South Dakota 83475",
+                        "transactionId": 235678,
+                        "documents": [
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Unapproved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            }
+                        ]
+                    },
+                    {
+                        "address": "2715 Ash Dr. San Jose, South Dakota 83475",
+                        "transactionId": 235678,
+                        "documents": [
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Unapproved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            }
+                        ]
+                    },
+                    {
+                        "address": "2715 Ash Dr. San Jose, South Dakota 83475",
+                        "transactionId": 235678,
+                        "documents": [
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Approved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            },
+                            
+                            {
+                                "title": "License Document.pdf",
+                                "checkListName": "Demo Name",
+                                "date": "2023-07-26T17:30:00",
+                                "status": "Unapproved",
+                                "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            }
+                        ]
+                    }
+               ],
+               "team": [
+                    {
+                        "title": "Team Agreement.pdf",
+                        "size": "15MB",
+                        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+               ],
+               "tax": [
+                    {
+                        "title": "Cheque.pdf",
+                        "size": "15MB",
+                        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    },
+                    {
+                        "title": "Settlement Document.pdf",
+                        "size": "15MB",
+                        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    },
+                    {
+                        "title": "ICA Document.pdf",
+                        "size": "15MB",
+                        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+               ] 
+            }
+          ]
+        }
