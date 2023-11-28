@@ -15,7 +15,7 @@ class WebView extends StatelessWidget {
           backgroundColor: const Color(0xFFFFFFFF),
           actions: [
             Padding(
-              padding: const EdgeInsets.all(4.0),
+              padding: const EdgeInsets.fromLTRB(6, 8, 6, 8),
               child: Container(
                 height: 42,
                 margin: const EdgeInsets.fromLTRB(2, 2, 20, 2),

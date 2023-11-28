@@ -137,6 +137,15 @@ class _HomeScreenState extends State<HomeScreen>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
+                '${document['address']}',
+                style: GoogleFonts.roboto(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 20,),
+              Text(
                 'Transaction ID: ${document['transactionId']}',
                 style: GoogleFonts.roboto(
                   fontSize: 18,
@@ -172,8 +181,6 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                       ),
                       onPressed: () {
-                        // Handle the click on the "View" icon
-                        // This could be where you open the local document viewer
                         launch(document['url']);
                       },
                       child: Image.asset('assets/view.png'),
@@ -186,24 +193,20 @@ class _HomeScreenState extends State<HomeScreen>
           );
         } else {
           return ListTile(
+            leading: Image.asset('assets/pdf.png'),
             title: Text(
               title,
               style: GoogleFonts.roboto(color: Colors.black),
             ),
             subtitle:
                 Text(size, style: GoogleFonts.roboto(color: Colors.black)),
-            trailing: ElevatedButton(
+            trailing: TextButton(
               style: ElevatedButton.styleFrom(
-                elevation: 0,
-                primary: Colors.transparent,
-                onPrimary: Colors.transparent,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6),
                 ),
               ),
               onPressed: () {
-                // Handle the click on the "View" icon
-                // This could be where you open the local document viewer
                 launch(document['url']);
               },
               child: Image.asset('assets/view.png'),
