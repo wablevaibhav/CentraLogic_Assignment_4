@@ -1,8 +1,9 @@
 # my_document
 
 ## Mobile Screenshots
-![IMG_20231105_213702](https://github.com/wablevaibhav/my_document/assets/57138983/6f6c6833-2c39-436a-9cdc-184c23a1ee2c)
-![IMG_20231105_213655](https://github.com/wablevaibhav/my_document/assets/57138983/0d01a1d2-7586-4da5-aab3-8f94b7801e5f)
+![WhatsApp Image 2023-11-28 at 18 38 51_f03e7020](https://github.com/wablevaibhav/my_document/assets/57138983/0e1885a0-8776-41d4-ae1f-2e5a7171b792)
+![WhatsApp Image 2023-11-28 at 18 38 56_273ab1ed](https://github.com/wablevaibhav/my_document/assets/57138983/33d57010-d003-42d3-bbc0-84a1c45b2c20)
+
 
 ## Getting Started
 
