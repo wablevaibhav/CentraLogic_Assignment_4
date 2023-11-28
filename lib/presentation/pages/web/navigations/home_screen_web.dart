@@ -7,10 +7,6 @@ class HomeScreenWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Your App Title'),
-        centerTitle: true,
-      ),
       drawer: SideMenu(),
       body: Center(child: Text('sdgsg'),),
     );

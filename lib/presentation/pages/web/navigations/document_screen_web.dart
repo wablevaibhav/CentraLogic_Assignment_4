@@ -13,10 +13,6 @@ class _DocumentScreenWebState extends State<DocumentScreenWeb> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Document'),
-        centerTitle: true,
-      ),
       drawer: SideMenu(),
       body: Center(child: Text('sdgsg'),),
     );

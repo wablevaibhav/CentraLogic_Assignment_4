@@ -105,9 +105,9 @@ class _SideMenuState extends State<SideMenu> {
       _currentIndex = index;
     });
     if (index == 0) {
-      Navigator.push(context,MaterialPageRoute(builder: (context) => HomeScreenWeb()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreenWeb()));
     } else if (index == 1) {
-      Navigator.push(context,MaterialPageRoute(builder: (context) => DocumentScreenWeb()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DocumentScreenWeb()));
     }
   }
 }

@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+
 
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
@@ -174,13 +174,13 @@ class _HomeScreenState extends State<HomeScreen>
                     trailing: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        primary: Colors.transparent,
-                        onPrimary: Colors.transparent,
+                        foregroundColor: Colors.transparent,
+                        backgroundColor: Colors.transparent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6),
                         ),
                       ),
-                      onPressed: () {
+                      onPressed: ()  {
                         launch(document['url']);
                       },
                       child: Image.asset('assets/view.png'),
@@ -192,6 +192,7 @@ class _HomeScreenState extends State<HomeScreen>
             ],
           );
         } else {
+          // For Other Documents
           return ListTile(
             leading: Image.asset('assets/pdf.png'),
             title: Text(
@@ -206,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen>
                   borderRadius: BorderRadius.circular(6),
                 ),
               ),
-              onPressed: () {
+              onPressed: ()  {
                 launch(document['url']);
               },
               child: Image.asset('assets/view.png'),

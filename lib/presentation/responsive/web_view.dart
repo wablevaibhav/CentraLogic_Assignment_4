@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_document/presentation/pages/web/home_screen.dart';
+import 'package:my_document/presentation/pages/web/navigations/home_screen_web.dart';
 import 'package:my_document/presentation/pages/web/side_menu.dart';
+
+import '../pages/web/home_screen.dart';
 
 class WebView extends StatelessWidget {
   const WebView({super.key});
@@ -61,7 +63,7 @@ class WebView extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.white,
-        drawer: const SideMenu(),
-        body: const HomeScreen());
+        drawer:  SideMenu(),
+        body:  HomeScreen());
   }
 }
