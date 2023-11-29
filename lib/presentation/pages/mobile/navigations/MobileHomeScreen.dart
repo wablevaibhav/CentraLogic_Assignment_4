@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeScreenMob extends StatelessWidget {
-  const HomeScreenMob({super.key});
+class MobileHomeScreen extends StatelessWidget {
+  const MobileHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class HomeScreenMob extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Text('Home Screen',
+        child: Text('Welcome To CentraLogic',
             style: GoogleFonts.roboto(
               fontSize: 24,
               fontWeight: FontWeight.w600,

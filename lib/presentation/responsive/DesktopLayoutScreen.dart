@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_document/presentation/pages/web/navigations/home_screen_web.dart';
 import 'package:my_document/presentation/pages/web/side_menu.dart';
 
 import '../pages/web/home_screen.dart';
+import '../themes/app_colors.dart';
 
-class WebView extends StatelessWidget {
-  const WebView({super.key});
+class DesktopLayoutScreen extends StatelessWidget {
+  const DesktopLayoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class WebView extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(2, 2, 20, 2),
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Colors.grey),
+                  border: Border.all(width: 1, color:  AppColors.separaterColor),
                   borderRadius: BorderRadius.circular(6),
                   color: const Color(0xffF5F5F5),
                 ),

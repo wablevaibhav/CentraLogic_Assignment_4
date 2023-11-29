@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:my_document/presentation/pages/mobile/navigations/document_mob.dart';
-import 'package:my_document/presentation/pages/mobile/navigations/home_screen_mob.dart';
+import 'package:my_document/presentation/pages/mobile/navigations/MobileDocumentScreen.dart';
+import 'package:my_document/presentation/pages/mobile/navigations/MobileHomeScreen.dart';
 import 'package:my_document/presentation/themes/app_colors.dart';
 
-class MobileView extends StatefulWidget {
-  const MobileView({super.key});
+class MobileLayoutScreen extends StatefulWidget {
+  const MobileLayoutScreen({super.key});
 
   @override
-  State<MobileView> createState() => _MobileViewState();
+  State<MobileLayoutScreen> createState() => _MobileLayoutScreenState();
 }
 
-class _MobileViewState extends State<MobileView> {
+class _MobileLayoutScreenState extends State<MobileLayoutScreen> {
   int _currentIndex = 0;
 
   @override
@@ -53,9 +53,9 @@ class _MobileViewState extends State<MobileView> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return HomeScreenMob();
+        return MobileHomeScreen();
       case 1:
-        return DocumentMob();
+        return MobileDocumentScreen();
       default:
         return Container();
     }

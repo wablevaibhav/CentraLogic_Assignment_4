@@ -4,8 +4,14 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../bloc/documents/document_bloc.dart';
+import '../../bloc/documents/document_event.dart';
+import '../../themes/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,36 +22,23 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+  final List<String> typesDocuments = [
+    "Joining Document",
+    "Transaction Document",
+    "Team Document",
+    "Tax Document",
+  ];
   late TabController _tabController;
-  List<Map<String, dynamic>> documentsData = [];
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
     _tabController.index = 0;
-    fetchData(); // Load data from the local JSON file
+    BlocProvider.of<DocumentBloc>(context)
+        .add(DocumentsInitialFetchEvent());
   }
 
-  Future<void> fetchData() async {
-    try {
-      final String data = await rootBundle.loadString('assets/document.json');
-
-      // Parse the JSON data
-      final Map<String, dynamic> jsonData = json.decode(data);
-
-      setState(() {
-        // Extract and set the data
-        documentsData =
-            (jsonData['value'] as List<dynamic>).cast<Map<String, dynamic>>();
-      });
-    } catch (error) {
-      if (kDebugMode) {
-        print('Error loading data: $error');
-      }
-    }
-    // Load JSON file from assets
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen>
               borderRadius: BorderRadius.circular(10),
             ),
             labelColor: Colors.white,
-            unselectedLabelColor: Colors.grey,
+            unselectedLabelColor: AppColors.separaterColor,
             tabs: const [
               Tab(text: 'Joining Documents'),
               Tab(text: 'Transaction Documents'),
@@ -90,10 +83,10 @@ class _HomeScreenState extends State<HomeScreen>
             child: TabBarView(
               controller: _tabController,
               children: [
-                buildDocumentTab('joining'),
-                buildDocumentTab("transaction"),
-                buildDocumentTab("team"),
-                buildDocumentTab("tax"),
+                // buildDocumentTab('joining'),
+                // buildDocumentTab("transaction"),
+                // buildDocumentTab("team"),
+                // buildDocumentTab("tax"),
               ],
             ),
           ),
@@ -102,125 +95,126 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Widget buildDocumentTab(String category) {
-    final List<Map<String, dynamic>> categoryDocuments = (documentsData
-        .map((categoryData) =>
-            (categoryData[category] as List?)?.cast<Map<String, dynamic>>() ??
-            [])
-        .expand((documents) => documents)).toList();
-
-    if (categoryDocuments.isEmpty) {
-      return Center(
-        child: Text(
-          'No $category Documents available to display',
-          style: const TextStyle(
-            fontSize: 18,
-            color: Colors.black,
-          ),
-        ),
-      );
-    }
-
-    return ListView.builder(
-      itemCount: categoryDocuments.length,
-      itemBuilder: (context, index) {
-        final document = categoryDocuments[index];
-        final String title = document['title'] ?? '';
-        final String size = document['size'] ?? '';
-
-        if (category == 'transaction') {
-          final List<Map<String, dynamic>> documents =
-              (document['documents'] as List?)?.cast<Map<String, dynamic>>() ??
-                  [];
-
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '${document['address']}',
-                style: GoogleFonts.roboto(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 20,),
-              Text(
-                'Transaction ID: ${document['transactionId']}',
-                style: GoogleFonts.roboto(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 8),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: documents.length,
-                itemBuilder: (context, documentIndex) {
-                  final document = documents[documentIndex];
-                  final String documentTitle = document['title'] ?? 'Untitled';
-                  final String documentSize =
-                      document['size'] ?? 'Unknown size';
-
-                  return ListTile(
-                    title: Text(
-                      documentTitle,
-                      style: GoogleFonts.roboto(color: Colors.black),
-                    ),
-                    subtitle: Text(documentSize,
-                        style: GoogleFonts.roboto(color: Colors.black)),
-                    trailing: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        foregroundColor: Colors.transparent,
-                        backgroundColor: Colors.transparent,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                      ),
-                      onPressed: ()  {
-                        launch(document['url']);
-                      },
-                      child: Image.asset('assets/view.png'),
-                    ),
-                  );
-                },
-              ),
-              const Divider(),
-            ],
-          );
-        } else {
-          // For Other Documents
-          return ListTile(
-            leading: Image.asset('assets/pdf.png'),
-            title: Text(
-              title,
-              style: GoogleFonts.roboto(color: Colors.black),
-            ),
-            subtitle:
-                Text(size, style: GoogleFonts.roboto(color: Colors.black)),
-            trailing: TextButton(
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6),
-                ),
-              ),
-              onPressed: ()  {
-                launch(document['url']);
-              },
-              child: Image.asset('assets/view.png'),
-            ),
-          );
-        }
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
+//   Widget buildDocumentTab(String category) {
+//     final List<Map<String, dynamic>> categoryDocuments = (documentsData
+//         .map((categoryData) =>
+//             (categoryData[category] as List?)?.cast<Map<String, dynamic>>() ??
+//             [])
+//         .expand((documents) => documents)).toList();
+//
+//     if (categoryDocuments.isEmpty) {
+//       return Center(
+//         child: Text(
+//           'No $category Documents available to display',
+//           style: const TextStyle(
+//             fontSize: 18,
+//             color: Colors.black,
+//           ),
+//         ),
+//       );
+//     }
+//
+//   //   return ListView.builder(
+//   //     itemCount: typesDocuments.length,
+//   //     itemBuilder: (context, index) {
+//   //         return Column(
+//   //           crossAxisAlignment: CrossAxisAlignment.start,
+//   //           children: [
+//   //             Text(
+//   //               '${documents['address']}',
+//   //               style: GoogleFonts.roboto(
+//   //                 fontSize: 14,
+//   //                 fontWeight: FontWeight.bold,
+//   //                 color: Colors.black,
+//   //               ),
+//   //             ),
+//   //             const SizedBox(height: 20,),
+//   //             Text(
+//   //               'Transaction ID: ${document['transactionId']}',
+//   //               style: GoogleFonts.roboto(
+//   //                 fontSize: 18,
+//   //                 fontWeight: FontWeight.bold,
+//   //                 color: Colors.black,
+//   //               ),
+//   //             ),
+//   //             const SizedBox(height: 8),
+//   //             ListView.builder(
+//   //               shrinkWrap: true,
+//   //               physics: const NeverScrollableScrollPhysics(),
+//   //               itemCount: documents.length,
+//   //               itemBuilder: (context, documentIndex) {
+//   //                 final document = documents[documentIndex];
+//   //                 final String documentTitle = document['title'] ?? 'Untitled';
+//   //                 final String documentSize =
+//   //                     document['size'] ?? 'Unknown size';
+//   //
+//   //                 return ListTile(
+//   //                   title: Text(
+//   //                     documentTitle,
+//   //                     style: GoogleFonts.roboto(color: Colors.black),
+//   //                   ),
+//   //                   subtitle: Text(documentSize,
+//   //                       style: GoogleFonts.roboto(color: Colors.black)),
+//   //                   trailing: ElevatedButton(
+//   //                     style: ElevatedButton.styleFrom(
+//   //                       elevation: 0,
+//   //                       foregroundColor: Colors.transparent,
+//   //                       backgroundColor: Colors.transparent,
+//   //                       shape: RoundedRectangleBorder(
+//   //                         borderRadius: BorderRadius.circular(6),
+//   //                       ),
+//   //                     ),
+//   //                     onPressed: ()  {
+//   //                       Navigator.push(context, MaterialPageRoute(builder: (context) => PDFView(
+//   //                         filePath: documents[index].url,
+//   //                         enableSwipe: true,
+//   //                         swipeHorizontal: true,
+//   //                       )));
+//   //                       launch(document['url']);
+//   //                     },
+//   //                     child: Image.asset('assets/view.png'),
+//   //                   ),
+//   //                 );
+//   //               },
+//   //             ),
+//   //             const Divider(),
+//   //           ],
+//   //         );
+//   //       } else {
+//   //         // For Other Documents
+//   //         return ListTile(
+//   //           leading: Image.asset('assets/pdf.png'),
+//   //           title: Text(
+//   //             title,
+//   //             style: GoogleFonts.roboto(color: Colors.black),
+//   //           ),
+//   //           subtitle:
+//   //               Text(size, style: GoogleFonts.roboto(color: Colors.black)),
+//   //           trailing: TextButton(
+//   //             style: ElevatedButton.styleFrom(
+//   //               shape: RoundedRectangleBorder(
+//   //                 borderRadius: BorderRadius.circular(6),
+//   //               ),
+//   //             ),
+//   //             onPressed: ()  {
+//   //               Navigator.push(context, MaterialPageRoute(builder: (context) => PDFView(
+//   //                 filePath: documents[index].url,
+//   //                 enableSwipe: true,
+//   //                 swipeHorizontal: true,
+//   //               )));
+//   //             },
+//   //             child: Image.asset('assets/view.png'),
+//   //           ),
+//   //         );
+//   //       }
+//   //     },
+//   //   );
+//   // }
+//
+//   @override
+//   void dispose() {
+//     _tabController.dispose();
+//     super.dispose();
+//   }
+// }
 }

@@ -32,7 +32,7 @@ class _SideMenuState extends State<SideMenu> {
             height: 1,
             margin:
             const EdgeInsets.only(top: 0, left: 20, right: 20, bottom: 20),
-            decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+            decoration: BoxDecoration(border: Border.all(color:  AppColors.separaterColor)),
           ),
           ListTile(
             leading: Image.asset(

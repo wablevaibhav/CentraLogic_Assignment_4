@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../themes/app_colors.dart';
+
 class TeamDocumentMob extends StatefulWidget {
   const TeamDocumentMob({super.key});
 
@@ -60,7 +62,7 @@ class _TeamDocumentMobState extends State<TeamDocumentMob> {
               ],
             ),
             const SizedBox(height: 10,),
-            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color: Colors.grey),),
+            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color:  AppColors.separaterColor),),
             const SizedBox(height: 10,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,7 +88,7 @@ class _TeamDocumentMobState extends State<TeamDocumentMob> {
               ],
             ),
             const SizedBox(height: 10,),
-            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color: Colors.grey),),
+            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color:  AppColors.separaterColor),),
             const SizedBox(height: 10,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -112,7 +114,7 @@ class _TeamDocumentMobState extends State<TeamDocumentMob> {
               ],
             ),
             const SizedBox(height: 10,),
-            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color: Colors.grey),),
+            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color:  AppColors.separaterColor),),
             const SizedBox(height: 10,),
           ],
         ),

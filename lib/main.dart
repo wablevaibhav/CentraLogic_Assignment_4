@@ -1,12 +1,17 @@
-import 'package:flutter/material.dart';
 
-import 'presentation/responsive/mobile_view.dart';
-import 'presentation/responsive/web_view.dart';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_document/presentation/bloc/documents/document_bloc.dart';
+import 'package:my_document/presentation/pages/layout_home.dart';
+import 'package:my_document/presentation/themes/app_colors.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(
+        create: (context) => DocumentBloc())
+  ], child: const MyApp()));
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -16,17 +21,11 @@ class MyApp extends StatelessWidget {
       title: 'My Documents',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
+        scaffoldBackgroundColor: AppColors.whiteColor,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.whiteColor,primary: AppColors.primaryColor)
       ),
-      home: LayoutBuilder(
-        builder: (context, constraints) {
-          if (constraints.maxWidth > 600) {
-            return  WebView();
-          } else {
-            return  MobileView();
-          }
-        },
-      ),
+      home: LayoutHome(),
     );
   }
 }
