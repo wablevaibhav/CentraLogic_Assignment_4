@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../side_menu.dart';
+import '../../../widgets/SideBar.dart';
 
 class DocumentScreenWeb extends StatefulWidget {
   const DocumentScreenWeb({super.key});

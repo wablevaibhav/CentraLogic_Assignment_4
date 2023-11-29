@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_document/core/utils/app_colors.dart';
 import 'package:my_document/presentation/pages/web/navigations/document_screen_web.dart';
 import 'package:my_document/presentation/pages/web/navigations/home_screen_web.dart';
-import 'package:my_document/presentation/themes/app_colors.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
@@ -21,7 +21,7 @@ class _SideMenuState extends State<SideMenu> {
         children: [
           Container(
             margin:
-            const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+                const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
             child: Image.asset(
               'assets/logo.png',
               width: 198,
@@ -31,8 +31,9 @@ class _SideMenuState extends State<SideMenu> {
           Container(
             height: 1,
             margin:
-            const EdgeInsets.only(top: 0, left: 20, right: 20, bottom: 20),
-            decoration: BoxDecoration(border: Border.all(color:  AppColors.separaterColor)),
+                const EdgeInsets.only(top: 0, left: 20, right: 20, bottom: 20),
+            decoration: BoxDecoration(
+                border: Border.all(color: AppColors.underlineColor)),
           ),
           ListTile(
             leading: Image.asset(
@@ -40,7 +41,6 @@ class _SideMenuState extends State<SideMenu> {
               width: 24,
               height: 24,
               color: _getIconColor(0),
-
             ),
             title: Text(
               'Home',
@@ -105,9 +105,11 @@ class _SideMenuState extends State<SideMenu> {
       _currentIndex = index;
     });
     if (index == 0) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreenWeb()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomeScreenWeb()));
     } else if (index == 1) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DocumentScreenWeb()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => DocumentScreenWeb()));
     }
   }
 }

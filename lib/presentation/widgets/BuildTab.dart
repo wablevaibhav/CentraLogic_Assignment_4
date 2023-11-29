@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../../data/entities/document.dart';
+import '../../data/models/Joining.dart';
 import 'SubtitleText.dart';
 import 'TitleText.dart';
 
@@ -44,12 +43,15 @@ SizedBox buildOtherTabs({required List<Joining> documents}) => SizedBox(
           subtitle: getSubtitleText(documents[index].size),
           trailing: IconButton(
             onPressed: () async {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PDFView(
-                filePath: documents[index].url,
-                enableSwipe: true,
-                swipeHorizontal: true,
-              )));
-             // launch(documents[index].url);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PDFView(
+                            filePath: documents[index].url,
+                            enableSwipe: true,
+                            swipeHorizontal: true,
+                          )));
+              // launch(documents[index].url);
             },
             icon: const Icon(
               Icons.remove_red_eye_outlined,

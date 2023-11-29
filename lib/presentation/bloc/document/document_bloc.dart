@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/entities/document.dart';
+import '../../../data/models/document.dart';
 import 'document_event.dart';
 import 'document_state.dart';
 
@@ -43,8 +43,7 @@ class DocumentBloc extends Bloc<DocumentEvent, DocumentState> {
 
   void documentsFetchEvent(
       DocumentsInitialFetchEvent event, Emitter<DocumentState> emit) async {
-    String jsonString =
-        await rootBundle.loadString('assets/document.json');
+    String jsonString = await rootBundle.loadString('assets/document.json');
 
     ModelDocuments documentsModel =
         ModelDocuments.fromJson(jsonDecode(jsonString));

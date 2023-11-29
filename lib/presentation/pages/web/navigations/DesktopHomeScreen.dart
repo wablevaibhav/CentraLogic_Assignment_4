@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_document/presentation/pages/web/side_menu.dart';
+import 'package:my_document/presentation/widgets/SideBar.dart';
 
 class HomeScreenWeb extends StatelessWidget {
   const HomeScreenWeb({super.key});

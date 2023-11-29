@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_document/presentation/pages/web/side_menu.dart';
 
-import '../pages/web/home_screen.dart';
-import '../themes/app_colors.dart';
+import '../../../core/utils/app_colors.dart';
+import '../web/home_screen.dart';
 
 class DesktopLayoutScreen extends StatelessWidget {
   const DesktopLayoutScreen({super.key});
@@ -24,7 +24,7 @@ class DesktopLayoutScreen extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(2, 2, 20, 2),
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color:  AppColors.separaterColor),
+                  border: Border.all(width: 1, color: AppColors.separaterColor),
                   borderRadius: BorderRadius.circular(6),
                   color: const Color(0xffF5F5F5),
                 ),
@@ -63,7 +63,7 @@ class DesktopLayoutScreen extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.white,
-        drawer:  SideMenu(),
-        body:  HomeScreen());
+        drawer: SideMenu(),
+        body: HomeScreen());
   }
 }

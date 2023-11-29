@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_document/core/utils/app_colors.dart';
 import 'package:my_document/presentation/pages/mobile/navigations/MobileDocumentScreen.dart';
 import 'package:my_document/presentation/pages/mobile/navigations/MobileHomeScreen.dart';
-import 'package:my_document/presentation/themes/app_colors.dart';
 
 class MobileLayoutScreen extends StatefulWidget {
   const MobileLayoutScreen({super.key});
