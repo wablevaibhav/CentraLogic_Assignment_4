@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../themes/app_colors.dart';
+import '../../core/utils/app_colors.dart';
 
 TextField getTransactionListText({
   required String label,
@@ -25,7 +25,7 @@ TextField getTransactionListText({
         ),
         border: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: AppColors.separaterColor,
+            color: AppColors.underlineColor,
           ),
         ),
       ),

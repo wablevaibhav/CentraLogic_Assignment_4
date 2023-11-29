@@ -5,7 +5,7 @@ import '../../data/models/Joining.dart';
 import 'SubtitleText.dart';
 import 'TitleText.dart';
 
-SizedBox buildOtherTabs({required List<Joining> documents}) => SizedBox(
+SizedBox buildTabs({required List<Joining> documents}) => SizedBox(
       width: double.infinity,
       height: double.infinity,
       child: ListView.separated(

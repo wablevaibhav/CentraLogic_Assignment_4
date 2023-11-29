@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_document/presentation/bloc/documents/document_event.dart';
+import 'package:my_document/core/utils/app_colors.dart';
 import 'package:my_document/presentation/pages/mobile/documents/MobileListDocumentScreen.dart';
 import 'package:my_document/presentation/pages/mobile/documents/MobileTransactionScreen.dart';
-import 'package:my_document/presentation/themes/app_colors.dart';
 
-import '../../../bloc/documents/document_bloc.dart';
+import '../../../bloc/document/document_bloc.dart';
+import '../../../bloc/document/document_event.dart';
 
 class MobileDocumentScreen extends StatefulWidget {
   const MobileDocumentScreen({super.key});
@@ -26,8 +26,7 @@ class _MobileDocumentScreenState extends State<MobileDocumentScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<DocumentBloc>(context)
-        .add(DocumentsInitialFetchEvent());
+    BlocProvider.of<DocumentBloc>(context).add(DocumentsInitialFetchEvent());
   }
 
   @override

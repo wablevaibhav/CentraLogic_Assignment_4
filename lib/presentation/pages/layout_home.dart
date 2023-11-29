@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_document/presentation/pages/web/DesktopLayoutScreen.dart';
 
-import '../responsive/DesktopLayoutScreen.dart';
-import '../responsive/MobileLayoutScreen.dart';
+import 'mobile/MobileLayoutScreen.dart';
 
 class LayoutHome extends StatelessWidget {
   const LayoutHome({super.key});
@@ -11,9 +11,9 @@ class LayoutHome extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > 600) {
-          return  DesktopLayoutScreen();
+          return DesktopLayoutScreen();
         } else {
-          return  MobileLayoutScreen();
+          return MobileLayoutScreen();
         }
       },
     );

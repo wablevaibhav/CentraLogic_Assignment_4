@@ -1,17 +1,19 @@
 import 'dart:io';
 
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
+import 'package:my_document/presentation/bloc/document/document_bloc.dart';
+import 'package:my_document/presentation/bloc/document/document_event.dart';
+import 'package:my_document/presentation/bloc/document/document_state.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../data/entities/document.dart';
-import '../../../bloc/documents/document_event.dart';
-import '../../../bloc/documents/document_state.dart';
-import '../../../bloc/documents/document_bloc.dart';
+import '../../../../data/models/Transaction.dart';
+import '../../../../data/models/TransactionDocument.dart';
+import '../../../../data/models/document.dart';
 import '../../../widgets/BodyTableCell.dart';
-import '../../../widgets/BuildOtherTab.dart';
+import '../../../widgets/BuildTab.dart';
 import '../../../widgets/HeadTableCell.dart';
 import '../../../widgets/SubtitleText.dart';
 import '../../../widgets/TitleText.dart';
@@ -74,8 +76,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
     );
   }
 
-  buildTabBar() =>
-      Container(
+  buildTabBar() => Container(
         width: 728,
         height: 50,
         decoration: BoxDecoration(
@@ -126,16 +127,15 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
       //width: 728,
       child: TabBarView(
         children: [
-
           /// Bloc builder to build the joining tab
           BlocBuilder<DocumentBloc, DocumentState>(
             builder: (context, state) {
               if (state is DocumentsFetchedState) {
-                return buildOtherTabs(
+                return buildTabs(
                   documents: DocumentsData.joining,
                 );
               }
-              return buildOtherTabs(
+              return buildTabs(
                 documents: DocumentsData.joining,
               );
             },
@@ -158,11 +158,11 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
           BlocBuilder<DocumentBloc, DocumentState>(
             builder: (context, state) {
               if (state is DocumentsFetchedState) {
-                return buildOtherTabs(
+                return buildTabs(
                   documents: DocumentsData.team,
                 );
               }
-              return buildOtherTabs(
+              return buildTabs(
                 documents: DocumentsData.team,
               );
             },
@@ -172,11 +172,11 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
           BlocBuilder<DocumentBloc, DocumentState>(
             builder: (context, state) {
               if (state is DocumentsFetchedState) {
-                return buildOtherTabs(
+                return buildTabs(
                   documents: DocumentsData.tax,
                 );
               }
-              return buildOtherTabs(
+              return buildTabs(
                 documents: DocumentsData.tax,
               );
             },
@@ -186,8 +186,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
     );
   }
 
-  buildTransactionsTab({required List<Transaction> transactions}) =>
-      SizedBox(
+  buildTransactionsTab({required List<Transaction> transactions}) => SizedBox(
         width: 728,
         child: ListView.separated(
           itemBuilder: (context, index) {
@@ -198,7 +197,6 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-
                   /// ListTile to display the Transaction document address and transaction ID
                   ListTile(
                     titleAlignment: ListTileTitleAlignment.center,
@@ -235,7 +233,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                               BlocProvider.of<DocumentBloc>(context).add(
                                 HideTransactionDocumentsEvent(
                                   transactionId:
-                                  transactions[index].transactionId,
+                                      transactions[index].transactionId,
                                 ),
                               );
                             },
@@ -250,7 +248,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                             BlocProvider.of<DocumentBloc>(context).add(
                               LoadTransactionDocumentsEvent(
                                 transactionId:
-                                transactions[index].transactionId,
+                                    transactions[index].transactionId,
                               ),
                             );
                           },
@@ -269,30 +267,28 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
 
                   BlocBuilder<DocumentBloc, DocumentState>(
                     builder: (context, state) =>
-                    state is ShowTransactionDocumentsState &&
-                        state.transactionId ==
-                            transactions[index].transactionId
-                        ? buildDocumentsTable(
-                      documents: transactions[index].documents,
-                    )
-                        : state is HideTransactionDocumentsState
-                        ? const SizedBox()
-                        : const SizedBox(),
+                        state is ShowTransactionDocumentsState &&
+                                state.transactionId ==
+                                    transactions[index].transactionId
+                            ? buildDocumentsTable(
+                                documents: transactions[index].documents,
+                              )
+                            : state is HideTransactionDocumentsState
+                                ? const SizedBox()
+                                : const SizedBox(),
                   ),
                 ],
               ),
             );
           },
-          separatorBuilder: (context, index) =>
-          const SizedBox(
+          separatorBuilder: (context, index) => const SizedBox(
             height: 10,
           ),
           itemCount: transactions.length,
         ),
       );
 
-  getActionButton() =>
-      Container(
+  getActionButton() => Container(
         width: 142,
         height: 42,
         padding: const EdgeInsets.symmetric(
@@ -399,8 +395,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
           ),
           ...documents
               .map(
-                (e) =>
-                TableRow(
+                (e) => TableRow(
                   children: [
                     getBodyTableCell(
                       text: e.title,
@@ -427,30 +422,30 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                             fontWeight: FontWeight.w400,
                             backgroundColor: e.status == "Unapproved"
                                 ? const Color.fromRGBO(
-                              255,
-                              0,
-                              0,
-                              0.5,
-                            )
+                                    255,
+                                    0,
+                                    0,
+                                    0.5,
+                                  )
                                 : const Color.fromRGBO(
-                              213,
-                              244,
-                              220,
-                              1,
-                            ),
+                                    213,
+                                    244,
+                                    220,
+                                    1,
+                                  ),
                             color: e.status == "Unapproved"
                                 ? const Color.fromRGBO(
-                              255,
-                              0,
-                              0,
-                              1,
-                            )
+                                    255,
+                                    0,
+                                    0,
+                                    1,
+                                  )
                                 : const Color.fromRGBO(
-                              32,
-                              135,
-                              56,
-                              1,
-                            ),
+                                    32,
+                                    135,
+                                    56,
+                                    1,
+                                  ),
                           ),
                         ),
                       ),
@@ -482,7 +477,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                     ),
                   ],
                 ),
-          )
+              )
               .toList(),
         ],
       ),
@@ -490,10 +485,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
   }
 
   openPdf(String url, BuildContext context) async {
-    if (MediaQuery
-        .of(context)
-        .size
-        .width < 400) {
+    if (MediaQuery.of(context).size.width < 400) {
       final res = await http.get(Uri.parse(url));
       final bytes = res.bodyBytes;
 
@@ -504,28 +496,27 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
 
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) =>
-              Scaffold(
-                appBar: AppBar(
-                  automaticallyImplyLeading: true,
-                ),
-                body: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: const Color.fromRGBO(
-                        48,
-                        48,
-                        48,
-                        0.05,
-                      ),
-                      width: 1,
-                    ),
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: true,
+            ),
+            body: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: const Color.fromRGBO(
+                    48,
+                    48,
+                    48,
+                    0.05,
                   ),
-                  child: Text('url'),
+                  width: 1,
                 ),
               ),
+              child: Text('url'),
+            ),
+          ),
         ),
       );
     }

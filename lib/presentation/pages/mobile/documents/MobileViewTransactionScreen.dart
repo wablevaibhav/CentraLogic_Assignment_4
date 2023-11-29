@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_document/presentation/themes/app_colors.dart';
+import 'package:my_document/core/utils/app_colors.dart';
 
-import '../../../../data/entities/document.dart';
+import '../../../../data/models/Transaction.dart';
 import '../../../widgets/ListDocuments.dart';
 import '../../../widgets/TransactionListText.dart';
 
@@ -68,7 +68,7 @@ class MobileViewTransactionScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            getListOfDocuments(
+            getListDocuments(
               transaction: transaction,
               height: MediaQuery.of(context).size.height * 0.3,
               scaffoldMessengerContext: scaffoldMessenger,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../data/entities/document.dart';
-import '../themes/app_colors.dart';
+import '../../core/utils/app_colors.dart';
+import '../../data/models/Transaction.dart';
 
-SizedBox getListOfDocuments({
+SizedBox getListDocuments({
   required double height,
   required scaffoldMessengerContext,
   required final Transaction transaction,
@@ -16,15 +16,14 @@ SizedBox getListOfDocuments({
         children: [
           Text(
             "Document Name",
-            style: TextStyle(
+            style: GoogleFonts.roboto(
               fontSize: 12,
-              fontFamily: "Roboto",
               fontWeight: FontWeight.w400,
               color: AppColors.blackColor,
             ),
           ),
           const SizedBox(
-            height: 08,
+            height: 8,
           ),
           Expanded(
             child: ListView.separated(
@@ -72,8 +71,8 @@ SizedBox getListOfDocuments({
                   },
                   icon: Icon(
                     Icons.remove_red_eye_outlined,
-                    color: AppColors.primaryColor,
-                    size: 22,
+                    color: AppColors.iconColor,
+                    size: 25,
                   ),
                 ),
               ),

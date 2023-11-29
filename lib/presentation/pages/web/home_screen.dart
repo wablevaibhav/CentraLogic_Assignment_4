@@ -1,17 +1,10 @@
-
-
-import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../../bloc/documents/document_bloc.dart';
-import '../../bloc/documents/document_event.dart';
-import '../../themes/app_colors.dart';
+import '../../../core/utils/app_colors.dart';
+import '../../bloc/document/document_bloc.dart';
+import '../../bloc/document/document_event.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -35,10 +28,8 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
     _tabController.index = 0;
-    BlocProvider.of<DocumentBloc>(context)
-        .add(DocumentsInitialFetchEvent());
+    BlocProvider.of<DocumentBloc>(context).add(DocumentsInitialFetchEvent());
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen>
               borderRadius: BorderRadius.circular(10),
             ),
             labelColor: Colors.white,
-            unselectedLabelColor: AppColors.separaterColor,
+            unselectedLabelColor: AppColors.underlineColor,
             tabs: const [
               Tab(text: 'Joining Documents'),
               Tab(text: 'Transaction Documents'),

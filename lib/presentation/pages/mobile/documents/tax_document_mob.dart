@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../themes/app_colors.dart';
+import '../../../../core/utils/app_colors.dart';
 
 class TaxDocumentMob extends StatefulWidget {
   const TaxDocumentMob({super.key});
@@ -24,13 +24,15 @@ class _TaxDocumentMobState extends State<TaxDocumentMob> {
           },
           child: Image.asset('assets/left.png'),
         ),
-        title: Text('Tax Documents',style: GoogleFonts.roboto(
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
-            letterSpacing: -0.1,
-            height: 1.3
-        ),),
+        title: Text(
+          'Tax Documents',
+          style: GoogleFonts.roboto(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              letterSpacing: -0.1,
+              height: 1.3),
+        ),
         centerTitle: true,
       ),
       body: Container(
@@ -47,12 +49,12 @@ class _TaxDocumentMobState extends State<TaxDocumentMob> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Cheque.pdf', style: GoogleFonts.roboto(
-                          color: Colors.black
-                      ),),
-                      Text('15MB', style: GoogleFonts.roboto(
-                          color: Colors.black
-                      )),
+                      Text(
+                        'Cheque.pdf',
+                        style: GoogleFonts.roboto(color: Colors.black),
+                      ),
+                      Text('15MB',
+                          style: GoogleFonts.roboto(color: Colors.black)),
                     ],
                   ),
                 ),
@@ -61,9 +63,17 @@ class _TaxDocumentMobState extends State<TaxDocumentMob> {
                     child: Image.asset('assets/view.png'))
               ],
             ),
-            const SizedBox(height: 10,),
-            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color:  AppColors.separaterColor),),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 1,
+              width: double.infinity,
+              decoration: BoxDecoration(color: AppColors.underlineColor),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -73,12 +83,12 @@ class _TaxDocumentMobState extends State<TaxDocumentMob> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Settlement Document.pdf', style: GoogleFonts.roboto(
-                          color: Colors.black
-                      ),),
-                      Text('15MB', style: GoogleFonts.roboto(
-                          color: Colors.black
-                      )),
+                      Text(
+                        'Settlement Document.pdf',
+                        style: GoogleFonts.roboto(color: Colors.black),
+                      ),
+                      Text('15MB',
+                          style: GoogleFonts.roboto(color: Colors.black)),
                     ],
                   ),
                 ),
@@ -87,9 +97,17 @@ class _TaxDocumentMobState extends State<TaxDocumentMob> {
                     child: Image.asset('assets/view.png'))
               ],
             ),
-            const SizedBox(height: 10,),
-            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color:  AppColors.separaterColor),),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 1,
+              width: double.infinity,
+              decoration: BoxDecoration(color: AppColors.underlineColor),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -99,12 +117,12 @@ class _TaxDocumentMobState extends State<TaxDocumentMob> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('ICA Document.pdf', style: GoogleFonts.roboto(
-                          color: Colors.black
-                      ),),
-                      Text('15MB', style: GoogleFonts.roboto(
-                          color: Colors.black
-                      )),
+                      Text(
+                        'ICA Document.pdf',
+                        style: GoogleFonts.roboto(color: Colors.black),
+                      ),
+                      Text('15MB',
+                          style: GoogleFonts.roboto(color: Colors.black)),
                     ],
                   ),
                 ),
@@ -113,9 +131,17 @@ class _TaxDocumentMobState extends State<TaxDocumentMob> {
                     child: Image.asset('assets/view.png'))
               ],
             ),
-            const SizedBox(height: 10,),
-            Container(height: 1,width: double.infinity,decoration: BoxDecoration(color:  AppColors.separaterColor),),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 1,
+              width: double.infinity,
+              decoration: BoxDecoration(color: AppColors.underlineColor),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),
