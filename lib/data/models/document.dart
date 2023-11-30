@@ -1,5 +1,6 @@
+import 'package:my_document/data/models/TransactionDocument.dart';
+
 import 'Joining.dart';
-import 'Transaction.dart';
 
 class DocumentsData {
   static List<Transaction> transactions = [];

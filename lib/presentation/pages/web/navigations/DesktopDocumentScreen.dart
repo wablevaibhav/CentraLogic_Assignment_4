@@ -6,6 +6,7 @@ import 'package:my_document/presentation/bloc/document/document_bloc.dart';
 import 'package:my_document/presentation/bloc/document/document_event.dart';
 import 'package:my_document/presentation/bloc/document/document_state.dart';
 import 'package:my_document/presentation/widgets/BuildTab.dart';
+import 'package:my_document/presentation/widgets/BuildTransactionTab.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -149,9 +150,12 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                     BlocBuilder<DocumentBloc, DocumentState>(
                       builder: (context, state) {
                         if (state is DocumentsFetchedState) {
-                          return Divider();
+                          return BuildTransactionTab(
+                            transaction: DocumentsData.transactions,
+                          );
                         }
-                        return Divider();
+                        return BuildTransactionTab(
+                            transaction: DocumentsData.transactions);
                       },
                     ),
 

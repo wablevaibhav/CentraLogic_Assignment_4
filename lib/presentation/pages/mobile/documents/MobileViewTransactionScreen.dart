@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_document/core/utils/app_colors.dart';
+import 'package:my_document/data/models/TransactionDocument.dart';
 
-import '../../../../data/models/Transaction.dart';
 import '../../../widgets/ListDocuments.dart';
 import '../../../widgets/TransactionListText.dart';
 

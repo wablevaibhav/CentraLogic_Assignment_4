@@ -7,4 +7,4 @@ Text getTitleText(String text) => Text(text,
     style: GoogleFonts.roboto(
         fontSize: 14,
         fontWeight: FontWeight.w400,
-        color: AppColors.tabUnderlineColor));
+        color: AppColors.blackColor));

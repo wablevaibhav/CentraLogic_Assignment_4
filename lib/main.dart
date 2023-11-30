@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
       title: 'My Documents',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: AppColors.tabBackgroundColor,
+          scaffoldBackgroundColor: AppColors.whiteColor,
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(
-              seedColor: AppColors.tabBackgroundColor,
+              seedColor: AppColors.whiteColor,
               primary: AppColors.primaryColor)),
       home: LayoutHome(),
     );

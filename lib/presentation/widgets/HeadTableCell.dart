@@ -8,16 +8,21 @@ TableCell getHeadTableCell({required String text}) => TableCell(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
         child: Row(
           children: [
-            Text(
-              text,
-              style: GoogleFonts.roboto(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: AppColors.tabUnderlineColor,
+            Expanded(
+              child: Center(
+                child: Text(
+                  text,
+                  style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.blackColor,
+                  ),
+                ),
               ),
             ),
-            const SizedBox(width: 10),
-            const Icon(Icons.arrow_drop_down, color: Colors.grey),
+            if (text != "Action") const SizedBox(width: 10),
+            if (text != "Action")
+              const Icon(Icons.arrow_drop_down, color: Colors.grey),
           ],
         ),
       ),

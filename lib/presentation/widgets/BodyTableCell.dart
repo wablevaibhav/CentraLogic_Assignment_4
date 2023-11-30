@@ -7,12 +7,14 @@ TableCell getBodyTableCell({required String text}) => TableCell(
       child: Container(
         height: 50,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
-        child: Text(
-          text,
-          style: GoogleFonts.roboto(
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            color: AppColors.tableColor,
+        child: Center(
+          child: Text(
+            text,
+            style: GoogleFonts.roboto(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: AppColors.tableColor,
+            ),
           ),
         ),
       ),
