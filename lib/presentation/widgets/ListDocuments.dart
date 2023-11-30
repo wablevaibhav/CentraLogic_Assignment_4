@@ -22,14 +22,10 @@ SizedBox getListDocuments({
               color: AppColors.blackColor,
             ),
           ),
-          const SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           Expanded(
             child: ListView.separated(
-              separatorBuilder: (context, index) => const SizedBox(
-                height: 16,
-              ),
+              separatorBuilder: (context, index) => const SizedBox(height: 16),
               itemCount: transaction.documents.length,
               itemBuilder: (context, index) => ListTile(
                 contentPadding: const EdgeInsets.all(0),
@@ -54,12 +50,7 @@ SizedBox getListDocuments({
                             height: double.infinity,
                             decoration: BoxDecoration(
                               border: Border.all(
-                                color: const Color.fromRGBO(
-                                  48,
-                                  48,
-                                  48,
-                                  0.05,
-                                ),
+                                color: AppColors.tabUnderlineColor,
                                 width: 1,
                               ),
                             ),
@@ -69,11 +60,8 @@ SizedBox getListDocuments({
                       ),
                     );
                   },
-                  icon: Icon(
-                    Icons.remove_red_eye_outlined,
-                    color: AppColors.iconColor,
-                    size: 25,
-                  ),
+                  icon: Icon(Icons.remove_red_eye_outlined,
+                      color: AppColors.iconColor, size: 25),
                 ),
               ),
             ),

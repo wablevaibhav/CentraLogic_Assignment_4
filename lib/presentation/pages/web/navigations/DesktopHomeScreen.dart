@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
+// HOME SCREEN -> DESKTOP
 class DesktopHomeScreen extends StatelessWidget {
   const DesktopHomeScreen({super.key});
 

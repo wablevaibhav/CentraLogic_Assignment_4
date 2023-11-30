@@ -3,6 +3,7 @@ import 'package:my_document/presentation/pages/web/DesktopLayoutScreen.dart';
 
 import 'mobile/MobileLayoutScreen.dart';
 
+// SETTING UP LAYOUT SCREEN
 class LayoutHome extends StatelessWidget {
   const LayoutHome({super.key});
 

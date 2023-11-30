@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../pages/mobile/navigations/MobileDocumentScreen.dart';
 import '../pages/mobile/navigations/MobileHomeScreen.dart';
 
+// MOBILE BOTTOM NAVIGATION
 Widget GetPage(int index) {
   switch (index) {
     case 0:

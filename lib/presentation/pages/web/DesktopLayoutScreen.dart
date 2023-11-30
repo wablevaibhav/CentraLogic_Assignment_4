@@ -4,6 +4,7 @@ import 'package:my_document/core/utils/app_colors.dart';
 import 'package:my_document/presentation/pages/web/navigations/DesktopHomeScreen.dart';
 import 'navigations/DesktopDocumentScreen.dart';
 
+// LAYOUT SCREEN -> DESKTOP
 class DesktopLayoutScreen extends StatefulWidget {
   DesktopLayoutScreen({Key? key}) : super(key: key);
 

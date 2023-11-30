@@ -9,6 +9,7 @@ import 'package:my_document/presentation/widgets/BuildTab.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
+// DOCUMENT SCREEN -> DESKTOP
 class DesktopDocumentScreen extends StatefulWidget {
   const DesktopDocumentScreen({super.key});
 
@@ -39,7 +40,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
               decoration: BoxDecoration(
                 border: Border.all(width: 1, color: AppColors.underlineColor),
                 borderRadius: BorderRadius.circular(6),
-                color: const Color(0xffF5F5F5),
+                color: AppColors.whiteColor,
               ),
               child: Row(
                 children: [
@@ -97,26 +98,16 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                 height: 50,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: const Color.fromRGBO(
-                    242,
-                    242,
-                    242,
-                    1,
-                  ),
+                  color: AppColors.whiteColor,
                 ),
                 child: TabBar(
                   indicatorSize: TabBarIndicatorSize.tab,
                   labelColor: Colors.white,
                   indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color.fromRGBO(
-                      21,
-                      58,
-                      131,
-                      1,
-                    ),
+                    color: AppColors.tabColor,
                   ),
-                  dividerColor: Colors.transparent,
+                  dividerColor: AppColors.transparentColor,
                   tabs: const [
                     Tab(
                       text: "Joining Documents",

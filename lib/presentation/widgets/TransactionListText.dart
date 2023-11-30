@@ -15,18 +15,16 @@ TextField getTransactionListText({
           fontWeight: FontWeight.w400,
           color: AppColors.blackColor),
       decoration: InputDecoration(
-        /// Set label text
         label: Text(
           label,
           style: GoogleFonts.roboto(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: AppColors.labelColor),
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: AppColors.labelColor,
+          ),
         ),
         border: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.underlineColor,
-          ),
+          borderSide: BorderSide(color: AppColors.underlineColor),
         ),
       ),
     );
