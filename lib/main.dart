@@ -5,9 +5,12 @@ import 'package:my_document/presentation/bloc/document/document_bloc.dart';
 import 'package:my_document/presentation/pages/layout_home.dart';
 
 void main() {
-  runApp(MultiBlocProvider(providers: [
-    BlocProvider(create: (context) => DocumentBloc()),
-  ], child: const MyApp()));
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (_) => DocumentBloc()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,12 +22,14 @@ class MyApp extends StatelessWidget {
       title: 'My Documents',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: AppColors.whiteColor,
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: AppColors.whiteColor,
-              primary: AppColors.primaryColor)),
-      home: LayoutHome(),
+        scaffoldBackgroundColor: AppColors.white,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.white,
+          primary: AppColors.primary,
+        ),
+      ),
+      home: const LayoutHome(),
     );
   }
 }

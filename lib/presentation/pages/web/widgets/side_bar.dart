@@ -1,62 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:my_document/core/utils/app_colors.dart';
-import 'package:my_document/presentation/pages/web/navigations/DesktopHomeScreen.dart';
-import 'navigations/DesktopDocumentScreen.dart';
 
-// LAYOUT SCREEN -> DESKTOP
-class DesktopLayoutScreen extends StatefulWidget {
-  DesktopLayoutScreen({Key? key}) : super(key: key);
-
-  @override
-  _DesktopLayoutScreenState createState() => _DesktopLayoutScreenState();
-}
-
-class _DesktopLayoutScreenState extends State<DesktopLayoutScreen> {
-  late Widget _currentScreen;
-
-  @override
-  void initState() {
-    super.initState();
-    _currentScreen = const DesktopHomeScreen();
-  }
-
-  void _updateScreen(Widget newScreen) {
-    setState(() {
-      _currentScreen = newScreen;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
-    final double height = MediaQuery.of(context).size.height;
-
-    return Scaffold(
-      body: Row(
-        children: [
-          SideBar(
-            width: width * 0.15,
-            updateScreen: _updateScreen,
-          ),
-          SizedBox(
-            width: width * 0.85,
-            height: height,
-            child: _currentScreen,
-          ),
-        ],
-      ),
-    );
-  }
-}
+import '../navigations/desktop_home.dart';
+import '../navigations/desktop_document.dart';
 
 class SideBar extends StatefulWidget {
-  SideBar({required this.width, required this.updateScreen});
+  const SideBar({
+    super.key,
+    required this.width,
+    required this.updateScreen,
+  });
 
   final double width;
   final Function(Widget) updateScreen;
 
   @override
+  // ignore: library_private_types_in_public_api
   _SideBarState createState() => _SideBarState();
 }
 
@@ -68,13 +30,13 @@ class _SideBarState extends State<SideBar> {
       "name": "Home",
       "icon": "assets/home.png",
       "isSelected": true,
-      "route": DesktopHomeScreen(),
+      "route": const DesktopHomeScreen(),
     },
     {
       "name": "Documents",
       "icon": "assets/document.png",
       "isSelected": false,
-      "route": DesktopDocumentScreen(),
+      "route": const DesktopDocumentScreen(),
     }
   ];
 
@@ -84,10 +46,10 @@ class _SideBarState extends State<SideBar> {
       width: widget.width,
       height: double.infinity,
       padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border.symmetric(
           horizontal: BorderSide.none,
-          vertical: BorderSide(width: 0.5, color: AppColors.underlineColor),
+          vertical: BorderSide(width: 0.5, color: AppColors.underline),
         ),
       ),
       child: Column(
@@ -116,11 +78,13 @@ class _SideBarState extends State<SideBar> {
                   leading: Image.asset(
                     tabs[index]["icon"],
                     color: _selectedIndex == index
-                        ? AppColors.primaryColor
-                        : AppColors.blackColor,
+                        ? AppColors.primary
+                        : AppColors.black,
                   ),
-                  title: buildTextWidget(tabs[index]["name"],
-                      isSelected: _selectedIndex == index),
+                  title: buildTextWidget(
+                    tabs[index]["name"],
+                    isSelected: _selectedIndex == index,
+                  ),
                 ),
               ),
             ),
@@ -135,7 +99,7 @@ class _SideBarState extends State<SideBar> {
       text,
       style: GoogleFonts.roboto(
         fontWeight: FontWeight.w400,
-        color: isSelected ? AppColors.primaryColor : AppColors.blackColor,
+        color: isSelected ? AppColors.primary : AppColors.black,
       ),
     );
   }

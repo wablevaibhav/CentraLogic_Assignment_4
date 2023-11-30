@@ -11,8 +11,12 @@ class DesktopHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        automaticallyImplyLeading: false,
+        title: const Text('Dashboard'),
         centerTitle: true,
+        toolbarHeight: MediaQuery.of(context).size.width <= 400
+            ? MediaQuery.of(context).size.height * 0.06
+            : MediaQuery.of(context).size.height * 0.1,
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(6, 8, 6, 8),
@@ -21,7 +25,7 @@ class DesktopHomeScreen extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(2, 2, 20, 2),
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
-                border: Border.all(width: 1, color: AppColors.underlineColor),
+                border: Border.all(width: 1, color: AppColors.underline),
                 borderRadius: BorderRadius.circular(6),
                 color: const Color(0xffF5F5F5),
               ),
@@ -47,10 +51,6 @@ class DesktopHomeScreen extends StatelessWidget {
             ),
           )
         ],
-        automaticallyImplyLeading: false,
-        toolbarHeight: MediaQuery.of(context).size.width <= 400
-            ? MediaQuery.of(context).size.height * 0.06
-            : MediaQuery.of(context).size.height * 0.1,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -59,7 +59,7 @@ class DesktopHomeScreen extends StatelessWidget {
             'Welcome To CentraLogic',
             style: GoogleFonts.roboto(
                 fontSize: 24,
-                color: AppColors.primaryColor,
+                color: AppColors.primary,
                 fontWeight: FontWeight.bold),
           ),
         ),

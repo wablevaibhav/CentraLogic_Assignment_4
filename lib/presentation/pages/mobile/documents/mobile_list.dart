@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_document/data/models/document.dart';
-import 'package:my_document/presentation/widgets/BuildTab.dart';
+import 'package:my_document/presentation/widgets/tabs.dart';
 
-class MobileListDocumentScreen extends StatelessWidget {
-  final String typesDocument;
+class MobileListScreen extends StatelessWidget {
+  final String documentType;
 
-  const MobileListDocumentScreen({super.key, required this.typesDocument});
+  const MobileListScreen({super.key, required this.documentType});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class MobileListDocumentScreen extends StatelessWidget {
           child: Image.asset('assets/left.png'),
         ),
         title: Text(
-          typesDocument,
+          documentType,
           style: GoogleFonts.roboto(
               color: Colors.black,
               fontWeight: FontWeight.w600,
@@ -40,10 +40,10 @@ class MobileListDocumentScreen extends StatelessWidget {
     );
   }
 
-  getDocumentsToLoad() => switch (typesDocument) {
+  getDocumentsToLoad() => switch (documentType) {
         "Joining Document" => DocumentsData.joining,
         "Team Documents" => DocumentsData.team,
         "Tax Document" => DocumentsData.tax,
-        String() => '',
+        String() => [],
       };
 }

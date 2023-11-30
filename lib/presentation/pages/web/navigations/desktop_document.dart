@@ -5,8 +5,8 @@ import 'package:my_document/data/models/document.dart';
 import 'package:my_document/presentation/bloc/document/document_bloc.dart';
 import 'package:my_document/presentation/bloc/document/document_event.dart';
 import 'package:my_document/presentation/bloc/document/document_state.dart';
-import 'package:my_document/presentation/widgets/BuildTab.dart';
-import 'package:my_document/presentation/widgets/BuildTransactionTab.dart';
+import 'package:my_document/presentation/widgets/tabs.dart';
+import 'package:my_document/presentation/widgets/transaction_tab.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -39,9 +39,9 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
               margin: const EdgeInsets.fromLTRB(2, 2, 20, 2),
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
-                border: Border.all(width: 1, color: AppColors.underlineColor),
+                border: Border.all(width: 1, color: AppColors.underline),
                 borderRadius: BorderRadius.circular(6),
-                color: AppColors.whiteColor,
+                color: AppColors.white,
               ),
               child: Row(
                 children: [
@@ -59,7 +59,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                   const SizedBox(
                     width: 2,
                   ),
-                  Image.asset('assets/arrow.png'),
+                  Image.asset('assets/arrow_down.png'),
                 ],
               ),
             ),
@@ -82,7 +82,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                   "Documents",
                   style: GoogleFonts.roboto(
                     fontSize: 24,
-                    color: AppColors.blackColor,
+                    color: AppColors.black,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -99,16 +99,16 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                 height: 50,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: AppColors.whiteColor,
+                  color: AppColors.white,
                 ),
                 child: TabBar(
                   indicatorSize: TabBarIndicatorSize.tab,
                   labelColor: Colors.white,
                   indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: AppColors.tabColor,
+                    color: AppColors.tab,
                   ),
-                  dividerColor: AppColors.transparentColor,
+                  dividerColor: AppColors.transparent,
                   tabs: const [
                     Tab(
                       text: "Joining Documents",
@@ -151,11 +151,11 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                       builder: (context, state) {
                         if (state is DocumentsFetchedState) {
                           return BuildTransactionTab(
-                            transaction: DocumentsData.transactions,
+                            transactions: DocumentsData.transactions,
                           );
                         }
                         return BuildTransactionTab(
-                            transaction: DocumentsData.transactions);
+                            transactions: DocumentsData.transactions);
                       },
                     ),
 

@@ -1,15 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:my_document/core/utils/app_colors.dart';
 import 'package:my_document/data/models/TransactionDocument.dart';
-
-import '../../../widgets/ListDocuments.dart';
-import '../../../widgets/TransactionListText.dart';
+import 'package:my_document/presentation/widgets/transaction_text_field.dart';
+import 'package:my_document/presentation/pages/mobile/widgets/list_documents.dart';
 
 class MobileViewTransactionScreen extends StatelessWidget {
   final Transaction transaction;
 
-  const MobileViewTransactionScreen({super.key, required this.transaction});
+  const MobileViewTransactionScreen({
+    super.key,
+    required this.transaction,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +34,10 @@ class MobileViewTransactionScreen extends StatelessWidget {
         title: Text(
           "Transaction Document",
           style: GoogleFonts.roboto(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: AppColors.blackColor),
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: AppColors.black,
+          ),
         ),
         centerTitle: true,
       ),
@@ -46,7 +51,7 @@ class MobileViewTransactionScreen extends StatelessWidget {
           children: [
             SizedBox(
               height: 62,
-              child: getTransactionListText(
+              child: transactionTextField(
                 label: "Transaction Address",
                 value: TextEditingController(
                   text: transaction.address,
@@ -58,7 +63,7 @@ class MobileViewTransactionScreen extends StatelessWidget {
             ),
             SizedBox(
               height: 62,
-              child: getTransactionListText(
+              child: transactionTextField(
                 label: "Transaction ID",
                 value: TextEditingController(
                   text: "#${transaction.transactionId}",
@@ -68,10 +73,10 @@ class MobileViewTransactionScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            getListDocuments(
+            listDocuments(
               transaction: transaction,
               height: MediaQuery.of(context).size.height * 0.3,
-              scaffoldMessengerContext: scaffoldMessenger,
+              scaffoldMessengerContext: scaffoldMessenger.context,
             ),
           ],
         ),
