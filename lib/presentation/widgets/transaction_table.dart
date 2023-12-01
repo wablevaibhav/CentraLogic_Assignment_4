@@ -8,7 +8,9 @@ import 'package:my_document/presentation/widgets/pdf_view.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-SizedBox transactionTable({required BuildContext context,required List<TransactionDocument> documents}) {
+SizedBox transactionTable(
+    {required BuildContext context,
+    required List<TransactionDocument> documents}) {
   return SizedBox(
     width: double.infinity,
     child: Table(
@@ -23,7 +25,7 @@ SizedBox transactionTable({required BuildContext context,required List<Transacti
           ),
           children: [
             headTable(text: "Document Table"),
-            headTable(text: "CheckList Name"),
+            headTable(text: "Checklist Name"),
             headTable(text: "Date & Time"),
             headTable(text: "Status"),
             headTable(text: "Action"),
@@ -81,14 +83,14 @@ SizedBox transactionTable({required BuildContext context,required List<Transacti
                   child: IconButton(
                     onPressed: () {
                       Navigator.push(
-                         context,
+                        context,
                         MaterialPageRoute(
                           builder: (context) => PdfViewerScreen(url: e.url),
                         ),
                       );
                     },
                     icon: const Icon(
-                      Icons.remove_red_eye_outlined,
+                      Icons.remove_red_eye,
                       color: AppColors.icon,
                     ),
                   ),

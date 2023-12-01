@@ -42,7 +42,7 @@ Builder buildTabs({required List<Joining> documents}) {
                 // launch(documents[index].url);
               },
               icon: const Icon(
-                Icons.remove_red_eye_outlined,
+                Icons.remove_red_eye,
                 color: AppColors.icon,
               )),
         ),

@@ -67,7 +67,6 @@ class _SideBarState extends State<SideBar> {
               itemCount: tabs.length,
               itemBuilder: (context, index) => InkWell(
                 onTap: () {
-                  print("Tapped: ${tabs[index]["name"]}");
                   setState(() {
                     _selectedIndex = index;
                   });
@@ -89,6 +88,12 @@ class _SideBarState extends State<SideBar> {
               ),
             ),
           ),
+          Text('Copyrights © 2023. All rights reserved.',
+              style: GoogleFonts.roboto(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: AppColors.black,
+              )),
         ],
       ),
     );

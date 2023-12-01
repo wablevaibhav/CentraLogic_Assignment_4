@@ -31,7 +31,7 @@ class BuildTransactionTab extends StatelessWidget {
                   ),
                   title: titleText(transactions[index].address),
                   subtitle: subtitleText(
-                    "Transaction ID #${transactions[index].transactionId}",
+                    "\nTransaction ID #${transactions[index].transactionId}",
                   ),
                   trailing: BlocBuilder<DocumentBloc, DocumentState>(
                     builder: (context, state) {
@@ -59,7 +59,7 @@ class BuildTransactionTab extends StatelessWidget {
                           );
                         },
                         icon: Image.asset(
-                          'assets/arrow_down.png',
+                          'assets/right.png',
                           color: AppColors.grey,
                         ),
                       );

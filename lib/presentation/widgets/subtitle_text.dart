@@ -6,7 +6,7 @@ Text subtitleText(String text) => Text(
       text,
       style: GoogleFonts.roboto(
         fontSize: 12,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.bold,
         color: AppColors.subTitle,
       ),
     );
