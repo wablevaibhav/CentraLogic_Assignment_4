@@ -34,9 +34,29 @@ The Documents feature in My APP allows users to manage and access various types 
    
    <img src="https://github.com/wablevaibhav/my_document/assets/57138983/0e1885a0-8776-41d4-ae1f-2e5a7171b792" width="300">
 
-3. **Mobile Document Page:**
+2. **Mobile Document Page:**
    
    <img src="https://github.com/wablevaibhav/my_document/assets/57138983/33d57010-d003-42d3-bbc0-84a1c45b2c20" width="300">
+
+3. **Mobile Document Joining Page:**
+   
+   <img src="https://github.com/wablevaibhav/CentraLogic_Assignment_4/assets/57138983/5ebff5b8-fc45-4d9c-a585-9f58ac801726" width="300">
+
+4. **Mobile Document Transaction Page:**
+
+   <img src="https://github.com/wablevaibhav/CentraLogic_Assignment_4/assets/57138983/a042c512-330a-47aa-8f22-4fbc47db7399" width="300">
+
+5. **Mobile Document Transaction View Page:**
+
+   <img src="https://github.com/wablevaibhav/CentraLogic_Assignment_4/assets/57138983/6bee24b5-8edb-461d-abfd-335165c6853b" width="300">
+
+6. **Mobile Document Tax Page:**
+
+   <img src="https://github.com/wablevaibhav/CentraLogic_Assignment_4/assets/57138983/1495de1c-6ae8-4122-93af-ca28cc3f39ab" width="300">
+
+7. **Mobile Document Team Page:**
+
+   <img src="https://github.com/wablevaibhav/CentraLogic_Assignment_4/assets/57138983/b2aca91e-81ca-43f1-9f96-d051c52957b8" width="300">
 
 ## Getting Started
 
