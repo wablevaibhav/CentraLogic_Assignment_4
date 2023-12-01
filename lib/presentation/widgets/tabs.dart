@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:my_document/core/utils/app_colors.dart';
+import 'package:my_document/presentation/widgets/pdf_view.dart';
 import 'package:my_document/presentation/widgets/subtitle_text.dart';
 import 'package:my_document/presentation/widgets/title_text.dart';
+import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 
-import '../../data/models/Joining.dart';
+import '../../data/models/joining.dart';
 
 // (JOINING -> TEAM -> TAX)  TAB
 Builder buildTabs({required List<Joining> documents}) {
@@ -31,24 +32,20 @@ Builder buildTabs({required List<Joining> documents}) {
           title: titleText(documents[index].title),
           subtitle: subtitleText(documents[index].size),
           trailing: IconButton(
-            onPressed: () async {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PDFView(
-                    filePath: documents[index].url,
-                    enableSwipe: true,
-                    swipeHorizontal: true,
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        PdfViewerScreen(url: documents[index].url),
                   ),
-                ),
-              );
-              // launch(documents[index].url);
-            },
-            icon: Image.asset(
-              'assets/view.png',
-              color: AppColors.icon,
-            ),
-          ),
+                );
+                // launch(documents[index].url);
+              },
+              icon: const Icon(
+                Icons.remove_red_eye_outlined,
+                color: AppColors.icon,
+              )),
         ),
         separatorBuilder: (context, index) => const SizedBox(height: 10),
         itemCount: documents.length,

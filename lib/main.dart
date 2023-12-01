@@ -4,6 +4,8 @@ import 'package:my_document/core/utils/app_colors.dart';
 import 'package:my_document/presentation/bloc/document/document_bloc.dart';
 import 'package:my_document/presentation/pages/layout_home.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 void main() {
   runApp(MultiBlocProvider(
     providers: [
@@ -19,13 +21,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       title: 'My Documents',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: AppColors.white,
+        scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.white,
+          seedColor: Colors.white,
           primary: AppColors.primary,
         ),
       ),

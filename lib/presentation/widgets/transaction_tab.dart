@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_document/core/utils/app_colors.dart';
-import 'package:my_document/data/models/TransactionDocument.dart';
+import 'package:my_document/data/models/transaction_document.dart';
 import 'package:my_document/presentation/bloc/document/document_bloc.dart';
 import 'package:my_document/presentation/bloc/document/document_event.dart';
 import 'package:my_document/presentation/bloc/document/document_state.dart';
@@ -37,19 +37,18 @@ class BuildTransactionTab extends StatelessWidget {
                     builder: (context, state) {
                       if (state is ShowTransactionDocumentsState) {
                         return IconButton(
-                          onPressed: () {
-                            BlocProvider.of<DocumentBloc>(context).add(
-                              HideTransactionDocumentsEvent(
-                                transactionId:
-                                    transactions[index].transactionId,
-                              ),
-                            );
-                          },
-                          icon: const Icon(
-                            Icons.keyboard_arrow_up,
-                            color: Colors.grey,
-                          ),
-                        );
+                            onPressed: () {
+                              BlocProvider.of<DocumentBloc>(context).add(
+                                HideTransactionDocumentsEvent(
+                                  transactionId:
+                                      transactions[index].transactionId,
+                                ),
+                              );
+                            },
+                            icon: Image.asset(
+                              'assets/arrow_up.png',
+                              color: Colors.grey,
+                            ));
                       }
                       return IconButton(
                         onPressed: () {
@@ -60,7 +59,7 @@ class BuildTransactionTab extends StatelessWidget {
                           );
                         },
                         icon: Image.asset(
-                          'assets/arrow_up.png',
+                          'assets/arrow_down.png',
                           color: AppColors.grey,
                         ),
                       );

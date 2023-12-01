@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_document/data/models/TransactionDocument.dart';
+import 'package:my_document/data/models/transaction_document.dart';
 
 import '../../../../core/utils/app_colors.dart';
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_document/data/models/document.dart';
 import 'package:my_document/presentation/bloc/document/document_bloc.dart';
 import 'package:my_document/presentation/bloc/document/document_event.dart';
 import 'package:my_document/presentation/bloc/document/document_state.dart';
@@ -9,6 +8,7 @@ import 'package:my_document/presentation/widgets/tabs.dart';
 import 'package:my_document/presentation/widgets/transaction_tab.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import '../../../../data/models/document.dart';
 
 // DOCUMENT SCREEN -> DESKTOP
 class DesktopDocumentScreen extends StatefulWidget {
@@ -29,7 +29,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Documents'),
+        title: const Text('Documents'),
         centerTitle: true,
         actions: [
           Padding(
@@ -99,7 +99,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
                 height: 50,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: AppColors.white,
+                  color: AppColors.tabBackground,
                 ),
                 child: TabBar(
                   indicatorSize: TabBarIndicatorSize.tab,

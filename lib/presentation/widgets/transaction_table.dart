@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_document/core/utils/app_colors.dart';
-import 'package:my_document/data/models/TransactionDocument.dart';
+import 'package:my_document/data/models/transaction_document.dart';
 import 'package:my_document/presentation/widgets/body_table.dart';
 import 'package:my_document/presentation/widgets/head_table.dart';
+import 'package:my_document/presentation/widgets/pdf_view.dart';
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 SizedBox transactionTable({required List<TransactionDocument> documents}) {
   return SizedBox(
@@ -77,6 +80,11 @@ SizedBox transactionTable({required List<TransactionDocument> documents}) {
                 child: TableCell(
                   child: IconButton(
                     onPressed: () {
+                      navigatorKey.currentState?.push(
+                        MaterialPageRoute(
+                          builder: (context) => PdfViewerScreen(url: e.url),
+                        ),
+                      );
                       // launch(e.url);
                     },
                     icon: Image.asset(

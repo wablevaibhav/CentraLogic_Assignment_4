@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:my_document/core/utils/app_colors.dart';
-import 'package:my_document/data/models/TransactionDocument.dart';
+import 'package:my_document/data/models/transaction_document.dart';
 import 'package:my_document/presentation/widgets/transaction_text_field.dart';
 import 'package:my_document/presentation/pages/mobile/widgets/list_documents.dart';
 

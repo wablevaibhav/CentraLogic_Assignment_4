@@ -45,7 +45,7 @@ class DesktopHomeScreen extends StatelessWidget {
                   const SizedBox(
                     width: 2,
                   ),
-                  Image.asset('assets/arrow.png'),
+                  Image.asset('assets/arrow_down.png'),
                 ],
               ),
             ),

@@ -11,25 +11,26 @@ TableCell headTable({required String text}) {
       child: Row(
         children: [
           Expanded(
-            child: Center(
-              child: Text(
-                text,
-                style: GoogleFonts.roboto(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.black,
+            child: Row(
+              children: [
+                Text(
+                  text,
+                  style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.black,
+                  ),
                 ),
-              ),
+                if (text != "Action")
+                  Image.asset(
+                    'assets/table_arrow.png',
+                    color: AppColors.grey,
+                    width: 25,
+                    height: 25,
+                  ),
+              ],
             ),
           ),
-          if (text != "Action") const SizedBox(width: 10),
-          if (text != "Action")
-            Image.asset(
-              'assets/arrow_down.png',
-              color: AppColors.grey,
-              width: 25,
-              height: 25,
-            ),
         ],
       ),
     ),
