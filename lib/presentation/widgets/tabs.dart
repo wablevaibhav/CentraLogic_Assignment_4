@@ -3,7 +3,6 @@ import 'package:my_document/core/utils/app_colors.dart';
 import 'package:my_document/presentation/widgets/pdf_view.dart';
 import 'package:my_document/presentation/widgets/subtitle_text.dart';
 import 'package:my_document/presentation/widgets/title_text.dart';
-import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 
 import '../../data/models/joining.dart';
 
