@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:my_document/presentation/pages/layout_home.dart';
+import 'package:my_document/presentation/pages/web/navigations/desktop_document.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PdfViewerScreen extends StatelessWidget {
   final String url;
@@ -9,23 +12,20 @@ class PdfViewerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("PDF Viewer")),
-      body: _buildPdfView(url),
-    );
-  }
-
-  Widget _buildPdfView(String url) {
-    // Check if the platform is not Windows before using PdfView
-    if (!kIsWeb) {
-      return Center(
-        child: PdfView(
-          path: url,
-        ),
-      );
+    if (kIsWeb) {
+      // Running on the web, open the PDF in a new tab
+      launchUrl(Uri.parse(url));
+      return LayoutHome(); // or any placeholder widget
     } else {
-      return const Center(
-        child: Text("PDF Viewer is not supported on Windows."),
+      // Running on a mobile platform, use syncfusion_flutter_pdfviewer
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('PDF Viewer'),
+        ),
+        body: SfPdfViewer.network(
+          url,
+          canShowScrollHead: false,
+        ),
       );
     }
   }

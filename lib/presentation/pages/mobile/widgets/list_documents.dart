@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_document/data/models/transaction_document.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import '../../../widgets/pdf_view.dart';
 
 SizedBox listDocuments({
   required double height,
@@ -22,42 +23,27 @@ SizedBox listDocuments({
             color: AppColors.black,
           ),
         ),
-        const SizedBox(height: 8),
         Expanded(
-          child: ListView.separated(
-            separatorBuilder: (context, index) => const SizedBox(height: 16),
+          child: ListView.builder(
+            padding: const EdgeInsets.all(0),
             itemCount: transaction.documents.length,
             itemBuilder: (context, index) => ListTile(
               contentPadding: const EdgeInsets.all(0),
               title: Text(
-                '${transaction.documents[index].title}',
+                transaction.documents[index].title,
                 style: GoogleFonts.roboto(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: AppColors.primary,
+                  color: AppColors.black,
                 ),
               ),
               trailing: IconButton(
                 onPressed: () async {
-                  Navigator.of(scaffoldMessengerContext).push(
-                    // Use scaffoldMessengerContext here
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
-                      builder: (context) => Scaffold(
-                        appBar: AppBar(
-                          automaticallyImplyLeading: true,
-                        ),
-                        body: Container(
-                          width: double.infinity,
-                          height: double.infinity,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: AppColors.tabUnderline,
-                              width: 1,
-                            ),
-                          ),
-                          child: Text('url'),
-                        ),
-                      ),
+                      builder: (context) => PdfViewerScreen(
+                          url: transaction.documents[index].url),
                     ),
                   );
                 },

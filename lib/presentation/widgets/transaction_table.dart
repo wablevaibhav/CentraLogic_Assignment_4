@@ -8,7 +8,7 @@ import 'package:my_document/presentation/widgets/pdf_view.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-SizedBox transactionTable({required List<TransactionDocument> documents}) {
+SizedBox transactionTable({required BuildContext context,required List<TransactionDocument> documents}) {
   return SizedBox(
     width: double.infinity,
     child: Table(
@@ -80,15 +80,15 @@ SizedBox transactionTable({required List<TransactionDocument> documents}) {
                 child: TableCell(
                   child: IconButton(
                     onPressed: () {
-                      navigatorKey.currentState?.push(
+                      Navigator.push(
+                         context,
                         MaterialPageRoute(
                           builder: (context) => PdfViewerScreen(url: e.url),
                         ),
                       );
-                      // launch(e.url);
                     },
-                    icon: Image.asset(
-                      'assets/view.png',
+                    icon: const Icon(
+                      Icons.remove_red_eye_outlined,
                       color: AppColors.icon,
                     ),
                   ),

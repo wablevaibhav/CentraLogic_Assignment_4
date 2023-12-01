@@ -45,7 +45,7 @@ class _MobileTransactionScreenState extends State<MobileTransactionScreen> {
         ),
         centerTitle: true,
       ),
-      body: Container(
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: ListView.builder(
@@ -57,7 +57,7 @@ class _MobileTransactionScreenState extends State<MobileTransactionScreen> {
               padding: const EdgeInsets.all(16.0),
               child: ListTile(
                 contentPadding: const EdgeInsets.all(0),
-                title: Container(
+                title: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.3,
                   child: Text(
                     DocumentsData.transactions[index].address,
@@ -88,6 +88,16 @@ class _MobileTransactionScreenState extends State<MobileTransactionScreen> {
                           color: AppColors.black,
                         ),
                       ),
+                      const TextSpan(text: '\n\n'),
+                      TextSpan(
+                        text:
+                            'Settled On \n${DocumentsData.transactions[index].date}',
+                        style: GoogleFonts.roboto(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.black,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -104,7 +114,7 @@ class _MobileTransactionScreenState extends State<MobileTransactionScreen> {
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.grey,
-                    size: 16,
+                    size: 24,
                   ),
                 ),
               ),

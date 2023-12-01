@@ -41,7 +41,7 @@ class _DesktopDocumentScreenState extends State<DesktopDocumentScreen> {
               decoration: BoxDecoration(
                 border: Border.all(width: 1, color: AppColors.underline),
                 borderRadius: BorderRadius.circular(6),
-                color: AppColors.white,
+                color: const Color(0xffF5F5F5),
               ),
               child: Row(
                 children: [

@@ -42,7 +42,7 @@ class MobileListScreen extends StatelessWidget {
 
   getDocumentsToLoad() => switch (documentType) {
         "Joining Document" => DocumentsData.joining,
-        "Team Documents" => DocumentsData.team,
+        "Team Document" => DocumentsData.team,
         "Tax Document" => DocumentsData.tax,
         String() => [],
       };

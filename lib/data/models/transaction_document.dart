@@ -1,12 +1,14 @@
 class Transaction {
   late String address;
   late int transactionId;
+  String date;
   late List<TransactionDocument> documents;
 
   Transaction({
     required this.address,
     required this.transactionId,
     required this.documents,
+    required this.date,
   });
 
   factory Transaction.fromJson(Map<String, dynamic> json) {
@@ -16,6 +18,7 @@ class Transaction {
         .toList();
 
     return Transaction(
+      date: json['date'],
       address: json['address'],
       transactionId: json['transactionId'],
       documents: documents,

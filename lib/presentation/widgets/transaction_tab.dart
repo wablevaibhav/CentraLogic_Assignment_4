@@ -80,6 +80,7 @@ class BuildTransactionTab extends StatelessWidget {
                         state.transactionId ==
                             transactions[index].transactionId) {
                       return transactionTable(
+                        context: context,
                         documents: transactions[index].documents,
                       );
                     } else {
