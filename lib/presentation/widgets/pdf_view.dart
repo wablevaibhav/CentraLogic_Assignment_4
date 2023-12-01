@@ -15,7 +15,7 @@ class PdfViewerScreen extends StatelessWidget {
     if (kIsWeb) {
       // Running on the web, open the PDF in a new tab
       launchUrl(Uri.parse(url));
-      return LayoutHome(); // or any placeholder widget
+      return const LayoutHome(); // or any placeholder widget
     } else {
       // Running on a mobile platform, use syncfusion_flutter_pdfviewer
       return Scaffold(
